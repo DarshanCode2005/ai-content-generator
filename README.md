@@ -2,7 +2,7 @@
 
 AI Content Generator is a powerful AI-driven platform that helps users generate high-quality content effortlessly. From blog posts and social media captions to marketing copy and more, this tool streamlines content creation using artificial intelligence.
 
-#🌟 Utility of AI Content Generator
+# 🌟 Utility of AI Content Generator
 
 
 
@@ -157,7 +157,7 @@ Pull requests are welcome! If you find any issues, feel free to open an issue or
 
 ## 📬 Contact
 
-For any queries, reach out to: **[your.email@example.com](mailto\:your.email@example.com)**
+For any queries, reach out to: **[Darshan Email](mailto\:darshanthakare05@gmail.com)**
 
 ---
 
