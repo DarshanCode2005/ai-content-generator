@@ -159,6 +159,8 @@ Pull requests are welcome! If you find any issues, feel free to open an issue or
 
 For any queries, reach out to: **[Darshan Email](mailto\:darshanthakare05@gmail.com)**
 
+[Link to Explanation Video](https://drive.google.com/file/d/1XDBuCVI-CGbVtyBllz7lbjqAcQJuINjt/view?usp=drive_link)
+
 ---
 
 Happy Coding! 🚀
