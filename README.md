@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Content Generator
 
-## Getting Started
+AI Content Generator is a powerful AI-driven platform that helps users generate high-quality content effortlessly. From blog posts and social media captions to marketing copy and more, this tool streamlines content creation using artificial intelligence.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **AI-Powered Writing**: Generate blog posts, social media captions, and marketing content.
+- **SEO-Optimized Content**: Create content that ranks better on search engines.
+- **Customizable Tones**: Adjust the style and tone of your content to match your brand.
+- **Fast & Efficient**: Save time with instant AI-generated text.
+- **Secure Authentication**: Uses Clerk for authentication to ensure data security.
+- **Integrated Stripe Payments**: Upgrade to premium plans seamlessly with Stripe.
+
+## 📂 Folder Structure
+
+```
+📦 ai-content-generator
+├── 📂 app
+│   ├── 📂 dashboard (Protected by Clerk Authentication)
+│   ├── 📂 history (User's generated content history)
+│   ├── 📂 billing (Stripe-integrated payment system)
+│   ├── 📂 components (Reusable UI components using ShadCN)
+│   ├── 📄 layout.tsx (App layout)
+│   ├── 📄 page.tsx (Landing page)
+├── 📂 db (Drizzle ORM setup)
+├── 📂 public (Static assets)
+├── 📂 styles (Global styles and themes)
+├── 📄 next.config.js (Next.js configuration)
+├── 📄 package.json (Project dependencies and scripts)
+└── 📄 README.md (Project documentation)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Installation & Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
+- Node.js (>= 18.x)
+- npm or yarn
+- Clerk API Key (for authentication)
+- Stripe API Key (for payments)
+- PostgreSQL Database (via Drizzle ORM)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Steps
 
-## Learn More
+1. **Clone the Repository:**
+   ```sh
+   git clone https://github.com/DarshanCode2005/ai-content-generator.git
+   cd ai-content-generator
+   ```
+2. **Install Dependencies:**
+   ```sh
+   npm install
+   ```
+3. **Set Up Environment Variables:**
+   Create a `.env.local` file and add the following:
+   ```env
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+   CLERK_SECRET_KEY
+   NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+   NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+   NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY
+   NEXT_PUBLIC_DRIZZLE_DB_URL
+   ```
+4. **Run Database Migrations:**
+   ```sh
+   npx drizzle-kit push
+   ```
+5. **Start the Development Server:**
+   ```sh
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+## 🖥️ Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Landing Page
+- Users can sign in or sign up via Clerk authentication.
+- The page highlights AI-generated content features.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Dashboard
+- Users can generate content using AI models.
+- Saved history of generated content.
 
-## Deploy on Vercel
+### Billing
+- Users can subscribe to premium plans using Stripe.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Authentication
+- Sign-in, sign-up, and logout functionalities managed via Clerk.
+- Access to the dashboard is restricted to authenticated users.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 💳 Payments (Stripe Integration)
+- Users can choose between free ($0) and premium ($9.99) plans.
+- Various different payment gateways can be integrated in the future.
+
+## 📜 License
+This project is licensed under the **MIT License**.
+
+## 🤝 Contributing
+Pull requests are welcome! If you find any issues, feel free to open an issue or contribute with a PR.
+
+## 📬 Contact
+For any queries, reach out to: **darshanthakare05@gmail.com**
+
+---
+
+Happy Coding! 🚀

@@ -9,6 +9,21 @@ import { ArrowLeft} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { chatSession } from '@/utils/AiModal'
 import Link from 'next/link'
+import { AIOutput } from '@/utils/schema'
+import { db } from '@/utils/db'
+import { useUser } from '@clerk/nextjs'
+import moment from 'moment'
+import { useRouter } from 'next/router'
+
+export interface HISTORY{
+  id: Number,
+  formData: string,
+  aiResponse: string,
+  templateSlug: string,
+  createdBy:string,
+  createdAt: string
+}
+
 
 
 
@@ -23,6 +38,7 @@ function CreateNewContent(props:PROPS) {
   const selectedTemplate:TEMPLATE|undefined = Templates?.find((item) => item.slug == props.params['template-slug'])
   const [loading,setLoading] = useState(false)
   const [aiOutput,setAiOutput] = useState<string>('');
+  const { user } = useUser();
 
   const GenerateAIContent = async (formData:any) => {
     setLoading(true);
@@ -34,7 +50,20 @@ function CreateNewContent(props:PROPS) {
 
     // console.log(result.response.text())
     setAiOutput(result?.response.text())
+    await SaveInDb(formData,selectedTemplate?.slug,result?.response.text())
     setLoading(false);
+  }
+
+  const SaveInDb = async(formData:any,slug:any,aiOutput:string) => {
+    const result = await db.insert(AIOutput).values({
+        formData: formData,
+        templateSlug: slug || '',
+        aiResponse: aiOutput,
+        createdBy: user?.primaryEmailAddress?.emailAddress || '', // or any appropriate value
+        createdAt: moment().format('DD/MM/yyyy')
+      })
+
+      console.log(result)
   }
 
   return (
